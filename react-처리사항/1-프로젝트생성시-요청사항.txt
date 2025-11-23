@@ -1,0 +1,9 @@
+   - Next.js 16+ 프론트 기능만 사용, 서버 사이드 기능 사용하지 않음
+   - TypeScript, Prettier, ESLint 사용
+   - pnpm 사용 
+   - UI 라이브러리는 shadncd/ui 사용 (최신버전)
+   - Tailwind 4+
+
+   # 화면 구성
+    - 인트로 화면 구성
+    - 간단한 대시보드 화면
