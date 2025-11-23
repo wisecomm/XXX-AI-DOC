@@ -1,0 +1,77 @@
+next-스펙작성
+
+  1. speckit.constitution
+   * 문서 작성은 한국어로 해줘
+
+   # 1. 코딩 컨벤션
+    - Prettier 포맷팅 의무화, ESLint 사용
+   -  프론트 기능만 구현, 서버기능은 외부 rest api 사용
+
+   # 2. 라이브러리
+   * Next.js 16+ (서버 사이드 기능 사용 금지)
+   * TypeScript 
+    - UI 컴포넌트는 shadncd/ui 사용
+   * Tailwind 4+
+    - axios 라이브러리 사용
+
+//   * AG Grid 또는 TanStack Table 사용 ??? 
+
+
+2. speckit.specify
+   # 1. 작업 설명
+    - 사용자 아이디, 비밀번호를 사용하여 로그인.
+    - 성공적인 로그인 시 대시보드로 리디렉션됩니다.
+    - 로그인 실패 시 적절한 오류 메시지를 표시합니다.
+    
+   # 2. 범위
+    - 로그인 화면
+    - 간단한 대시보드 화면
+
+   # 3. 기능 요구사항
+   * 외부 rest api 리턴값은 json 형태임. 아래참조
+     {
+         "code": "200",
+         "message": "SUCCESS",
+         "data" : "" 
+     }
+    - 로그인 rest api 호출  상공시 data 값에  jwt 토큰, refresh 토큰 키 제공 
+    - 로그인 성공 시 `/dashboard` 경로로 이동합니다.
+
+   # 4. 비기능 요구사항
+
+   # 6. 기술 스택 및 제약사항
+    
+   # 7. 참조 자료
+    - 디자인 시안: [링크]
+    - API 명세: [링크]
+
+
+
+
+??? playwright 설치함 
+ npm install axios react-hook-form @hookform/resolvers zod bcryptjs jsonwebtoken js-cookie
+
+
+   * jwt rest api call 로그인 페이지 제공
+   * 페이징 조회 제공하는 그리드 만들기 (???)
+
+   * 사용자 CRUD 화면 작성
+   
+############################################################
+# 확인 작업
+############################################################
+
+
+############################################################
+AG Grid처럼 만들고 싶다면: TanStack Table + react-window + Radix UI + 커스텀 디자인 시스템
+
+
+필수 확장 프로그램
+* ESLint (dbaeumer.vscode-eslint) – 웹/백엔드 전체에서 린트 오류를 즉시 확인할 수 있어요.
+* Prettier (esbenp.prettier-vscode) – 저장 시 포맷팅을 자동 정리합니다.
+* Tailwind CSS IntelliSense (bradlc.vscode-tailwindcss) – Tailwind 클래스 자동완성과 오류 표시를 지원해요.
+* Playwright Test (ms-playwright.playwright) – 브라우저 통합 테스트를 에디터 내에서 실행·디버깅할 수 있습니다.
+* Vitest (vitest.explorer) – API 통합 테스트 상태를 탐색하기 편리해요.
+* Path IntelliSense (christian-kohler.path-intellisense) – @/…, @sever-sh02/types 같은 경로 자동완성에 도움 됩니다.
+* GitLens (eamodio.gitlens) – 모노레포 변경 이력 추적이 더 쉬워집니다.
+
