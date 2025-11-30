@@ -1,3 +1,4 @@
+
 구조가 잘 잡혀있으면서도 시작하기 좋은, "Simple & Clean" 프로젝트 3가지를 추천해 드립니다.
 
 1. Next.js Boilerplate (가장 추천)
@@ -8,7 +9,7 @@ https://github.com/ixartz/Next-js-Boilerplate
 추천 대상: 바로 프로덕트 개발을 시작하고 싶은 경우.
 
 
-// axios + react query
+// axios + react query : 이소스와 샘플의 axios 구조를 참고
 https://github.com/hassan-kamel/axios-react-query-example/tree/main
 
 
