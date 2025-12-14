@@ -1,0 +1,113 @@
+
+https://www.youtube.com/watch?v=dn0HTdo_oVo
+
+
+영상에서 사용한 PRD, Rule, Task 파일 템플릿입니다.
+지금 바로 복사해서 여러분의 프로젝트에 적용하세요.
+
+```
+Project Name: Simple Kanban Board with Dark Mode
+
+1. Project Overview
+*Goal:* React와 Tailwind CSS를 사용하여 드래그 앤 드롭이 가능한 칸반 보드를 구축한다.
+*Target User:* 개인 할 일 관리가 필요한 개발자.
+*Key Value:* 직관적인 UX, 다크모드 지원, 로컬 스토리지 데이터 지속성.
+
+2. Tech Stack
+*Framework:* React (Vite)
+*Styling:* Tailwind CSS
+*Icons:* Lucide React
+*State Management:* React Context API or Zustand (Simple local state is preferred for this demo)
+*Drag & Drop:* `@dnd-kit/core` (혹은 HTML5 Native API)
+
+3. Core Features (MVP)
+3.1 Board Layout
+화면 전체를 채우는 3개의 고정 컬럼: "To Do", "In Progress", "Done".
+모바일 반응형 지원 (모바일에서는 세로 스크롤).
+
+3.2 Task Management
+*Add Task:* "To Do" 컬럼 하단에 `+ Add Task` 버튼. 클릭 시 모달 없이 인라인 입력.
+*Delete Task:* 카드 내 휴지통 아이콘 클릭 시 삭제.
+*Edit Task:* 텍스트 클릭 시 수정 모드 전환.
+
+3.3 Drag and Drop
+카드를 같은 컬럼 내에서 순서 변경 가능.
+카드를 다른 컬럼으로 이동 가능.
+드래그 중인 카드는 약간 투명해지거나 그림자 효과(Visual Cue).
+
+3.4 Dark Mode
+우측 상단 토글 스위치로 라이트/다크 모드 전환.
+시스템 설정값(prefers-color-scheme) 초기 감지.
+다크모드 시 배경: Slate-900, 카드: Slate-800, 텍스트: Slate-100.
+
+3.5 Persistence
+모든 데이터(Tasks, Columns, Theme)는 `localStorage`에 저장되어 새로고침 후에도 유지되어야 함.
+
+4. Constraints (Non-functional)
+*Performance:* 드래그 시 60fps 유지 (불필요한 리렌더링 방지).
+*Code Quality:* 컴포넌트는 단일 책임 원칙(SRP)을 준수하여 분리.
+```
+규칙입니다.
+```
+Coding Rules & Guidelines
+
+1. General Principles
+*KISS (Keep It Simple, Stupid):* 과도한 추상화를 피하고 명확한 코드를 작성하라.
+*DRY (Don't Repeat Yourself):* 반복되는 로직은 커스텀 훅(`hooks/`)이나 유틸리티 함수(`utils/`)로 분리하라.
+*Functional Components:* 모든 컴포넌트는 React Functional Component로 작성하며 Hooks를 사용하라.
+
+2. File Structure
+`/src/components`: UI 컴포넌트 (e.g., `Column.tsx`, `TaskCard.tsx`)
+`/src/hooks`: 로직 분리 (e.g., `useKanban.ts`, `useTheme.ts`)
+`/src/types`: TypeScript 인터페이스 정의 (e.g., `types.ts`)
+*Rule:* 하나의 파일에는 하나의 컴포넌트만 존재해야 한다. (100줄이 넘어가면 분리를 고려할 것)
+
+3. Naming Conventions
+*Components:* PascalCase (e.g., `TaskCard`)
+*Functions/Variables:* camelCase (e.g., `handleDragEnd`, `isLoading`)
+*Types/Interfaces:* PascalCase with explicit naming (e.g., `Task`, `ColumnStatus`)
+
+4. Styling (Tailwind CSS)
+인라인 스타일(`style={{}}`) 사용 금지. 동적 스타일링도 Tailwind 유틸리티 클래스 조합(`clsx` or `tailwind-merge`)을 사용할 것.
+색상은 하드코딩하지 말고 Tailwind의 시맨틱 컬러(bg-primary, text-muted 등)나 기본 팔레트를 활용할 것.
+
+5. State Management & Logic
+`useEffect` 사용을 최소화하고 이벤트 핸들러 내에서 로직을 처리하라.
+비즈니스 로직(데이터 필터링, 드래그 계산 등)은 UI 컴포넌트 내부에 두지 말고 `hooks`로 분리하라.
+
+6. Error Handling
+드래그 앤 드롭 실패 시 UI가 멈추지 않고 원상복구 되어야 한다.
+`localStorage` 접근 시 예외 처리를 포함하라 (try-catch).
+
+```
+
+태스크 리스트입니다.
+```
+Development Task List
+
+Phase 1: Setup & Structure
+[ ] Vite + React + TypeScript + Tailwind CSS 프로젝트 초기화
+[ ] `types.ts`에 핵심 데이터 모델 정의 (`Task`, `Column`, `Id`)
+[ ] 기본 레이아웃 잡기 (Header, Main Board Area)
+
+Phase 2: Core Components (UI)
+[ ] `TaskCard` 컴포넌트 구현 (정적 디자인)
+[ ] `Column` 컴포넌트 구현 (TaskCard 리스트 렌더링)
+[ ] `KanbanBoard` 메인 컨테이너 구현
+
+Phase 3: State & Logic
+[ ] `useKanban` 훅 생성 (Create, Read, Update, Delete 로직 구현)
+[ ] Task 추가/삭제/수정 기능 연동
+[ ] LocalStorage 저장/불러오기 기능 구현 (`useEffect`)
+
+Phase 4: Drag and Drop (Complex)
+[ ] dnd-kit (또는 라이브러리) 설치 및 Context 설정
+[ ] `Draggable` 및 `Droppable` 영역 설정
+[ ] `onDragEnd` 핸들러 구현 (같은 컬럼 내 이동 + 다른 컬럼 이동 처리)
+
+Phase 5: Polish & Refactor
+[ ] `useTheme` 훅 구현 및 다크모드 토글 기능 추가
+[ ] 다크모드 스타일링 적용 (Tailwind `dark:` 클래스)
+[ ] 코드 클린업 (RULES.md 위반 사항 점검)
+
+```
