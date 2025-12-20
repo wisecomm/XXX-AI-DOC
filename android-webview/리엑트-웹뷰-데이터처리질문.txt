@@ -1,0 +1,35 @@
+
+
+
+??? Kotlin  WebView 프로그램과  react web 페이지 간의 데이터 주고 받는 샘플 
+
+??? window.AndroidBridge.sendDataToApp("안녕하세요 안드로이드!"); 후 리턴받는 방식도 일반적으로 사용하나 ?
+- 잘사용하지 않음 프로그램 버전정보 같은것만 사용한다고 함 
+
+??? react webview  전역에서 받아서 활성화 페이지로 전달하려면 ?
+React 웹 애플리케이션의 전역(window 객체)에서 데이터를 수신하고, 이를 사용자가 **현재 보고 있는 특정 페이지(컴포넌트)**로 안전하게 전달(Tossing)하려면 Context API나 **전역 상태 관리 라이브러리(Zustand, Redux 등)**를 사용하거나, Custom Event를 활용하는 방법이 가장 깔끔합니다.
+가장 추천하는 두 가지 방법을 소개합니다.
+
+
+
+## 안드로이드 코틀린으로 개발
+- 처음 빌드 후 
+- 아래 참조해서 만듬 ㅎㅎㅎ
+
+- 전에 내소스도 참조 : 신세계 백화점
+
+
+== 오랫된 소스이니 옵셔만 참조함 
+1. 추천 Repository
+imrankst1221/Android-WebView-in-Kotlin
+
+Star 수: 130+
+특징: 웹사이트를 안드로이드 앱으로 변환하는 것을 목적으로 만들어진 템플릿 형태입니다. 오프라인 HTML 로딩, 온라인 URL 로딩, 로딩 표시, 파일 업로드 처리 등 필수 기능이 깔끔하게 정리되어 있습니다.
+주소: github.com/imrankst1221/Android-WebView-in-Kotlinß
+
+2. 더 간단한 학습용 (Tutorial Style)
+Kisheo/Kotlin-Webview-Example
+
+특징: 프로그레스 바(로딩 바)와 에러 처리 등 딱 필요한 기능만 들어있는 예제입니다. 코드가 매우 짧아서 공부하기 좋습니다.
+주소: github.com/Kisheo/Kotlin-Webview-Example
+
